@@ -1,0 +1,32 @@
+[panel /Users/paulmorellec/Desktop/AI_Project/data/processed/crsp_panel.parquet]
+[French files /Users/paulmorellec/Desktop/AI_Project/data/raw/factors]
+
+=== Market: 695 months | corr with Mkt-RF 1.0000 | mean ours 59.2 bp vs French 59.4 bp ===
+
+=== Size deciles (VW): 690 months, 196807 to 202512 ===
+portfolio  corr  mean_ours_bp  mean_french_bp
+       D1 0.996        87.523          94.788
+       D2 0.996        95.284         100.251
+       D3 0.998       103.209         105.667
+       D4 0.998       101.395         101.968
+       D5 0.998       106.573         106.400
+       D6 0.998        96.956         100.291
+       D7 0.998       103.014         104.664
+       D8 0.999       102.344         103.477
+       D9 0.999        98.854          98.819
+      D10 1.000        92.682          93.067
+   D10-D1 0.993         5.159          -1.722
+
+=== Momentum deciles (VW): 684 months, 196901 to 202512 ===
+portfolio  corr  mean_ours_bp  mean_french_bp
+       D1 0.998        24.962          27.256
+       D2 0.997        72.896          75.791
+       D3 0.996        92.086          92.038
+       D4 0.997        97.388          98.947
+       D5 0.997        89.108          90.108
+       D6 0.997        97.438          97.623
+       D7 0.997        98.233          98.566
+       D8 0.999       105.601         105.558
+       D9 0.999       103.974         105.156
+      D10 0.999       138.094         138.051
+   D10-D1 0.997       113.132         110.795

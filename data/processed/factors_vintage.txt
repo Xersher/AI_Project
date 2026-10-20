@@ -1,0 +1,5 @@
+downloaded 2026-10-16 14:23
+local file F-F_Research_Data_Factors.csv
+local file F-F_Research_Data_5_Factors_2x3.csv
+local file F-F_Momentum_Factor.csv
+local file q5_factors_monthly_2025.csv

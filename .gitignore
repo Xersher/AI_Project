@@ -1,0 +1,24 @@
+# macOS and Python clutter
+.DS_Store
+__pycache__/
+
+# Not pushed to GitHub
+data/processed/duckdb_tmp/
+data/raw/crsp/
+output/figures/
+output/tables/
+data/processed/crsp_*.parquet
+data/processed/crsp_monthly.parquet
+data/processed/crsp_panel.parquet
+output/tables/composite_returns.csv
+data/processed/factors_monthly.csv
+data/raw/factors/Portfolios_Formed_on_ME_CSV.zip
+output/tables/individual_returns.csv
+output/tables/composite_slopes.csv
+output/tables/alpha_paths_FF6.csv
+data/processed/composite_forecasts.parquet
+data/processed/characteristics.parquet
+data/raw/factors/10_Portfolios_Prior_12_2_CSV.zip
+data/processed/factors_monthly.parquet
+data/raw/factors/F-F_Research_Data_Factors.csv
+data/processed/characteristics.parquet

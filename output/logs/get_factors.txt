@@ -1,0 +1,26 @@
+[downloads /Users/paulmorellec/Desktop/AI_Project/data/raw/factors]
+[output /Users/paulmorellec/Desktop/AI_Project/data/processed]
+
+Mkt-RF, FF3 vs FF5 file: 167 of 758 months differ, max difference 0.08 percentage points
+HML, FF3 vs FF5 file: 0 of 758 months differ, max difference 0.00 percentage points
+RF, FF3 vs FF5 file: 0 of 758 months differ, max difference 0.00 percentage points
+
+First and last month with data, by column:
+         first    last
+mktrf   192607  202608
+smb     192607  202608
+hml     192607  202608
+rf      192607  202608
+mktrf5  196307  202608
+smb5    196307  202608
+hml5    196307  202608
+rmw     196307  202608
+cma     196307  202608
+umd     192701  202608
+q_mkt   196701  202512
+q_me    196701  202512
+q_ia    196701  202512
+q_roe   196701  202512
+q_eg    196701  202512
+
+[wrote factors_monthly.parquet/.csv and factors_vintage.txt to /Users/paulmorellec/Desktop/AI_Project/data/processed]

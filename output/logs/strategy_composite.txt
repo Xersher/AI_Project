@@ -1,0 +1,77 @@
+Specification S-01: weighting=vw, MIN_CHARS=9, FORMATION_START=197012, MIN_SLOPES=36, EST_SIZE_PCTL=0.2, band 10%/20%, test 197401-202512
+
+cross-sections: 3,101,947 PERMNO-months with >= 9 characteristics, 196809-202512
+spreads: NONE -> gross results, turnover and break-even spread only (no net returns)
+Fama-MacBeth: 660 monthly regressions, return months 197101-202512, median 1815 stocks each
+
+Portfolios: holding months 197401-202601; primary window 197401-202512 = 624 months
+stocks per leg (median): long 887, short 576; min 259 / 232
+members dropped for a missing next-month return (share of leg-months): 0.0004
+
+Traded weight per month, sum |w_new - w_drifted| (one-way turnover = half of it):
+  banded:   long 1.462, short 1.218
+  unbanded: long 1.732, short 1.559
+
+=== ls_gross: mean 1.284% per month, t(mean) 7.19, 624 months ===
+         alpha_pct  t_ols     r2    n   first    last  ann_appraisal  passes_2.78
+model                                                                            
+CAPM         1.316  7.296  0.002  624  197401  202512          1.023         True
+FF3          1.292  7.150  0.016  624  197401  202512          1.010         True
+FF3+Mom      0.678  5.466  0.553  624  197401  202512          0.785         True
+FF5          1.064  5.882  0.068  624  197401  202512          0.853         True
+FF6          0.593  4.733  0.563  624  197401  202512          0.693         True
+q            0.726  4.223  0.183  624  197401  202512          0.622         True
+q5           0.597  3.248  0.188  624  197401  202512          0.512         True
+   ls_gross 197401-200012: FF6 alpha 1.094% (t 5.85, 324 months)
+   ls_gross 200101-202512: FF6 alpha 0.161% (t 0.96, 300 months)
+
+=== ls_gross_noband: mean 1.367% per month, t(mean) 7.30, 624 months ===
+         alpha_pct  t_ols     r2    n   first    last  ann_appraisal  passes_2.78
+model                                                                            
+CAPM         1.405  7.424  0.003  624  197401  202512          1.041         True
+FF3          1.385  7.299  0.015  624  197401  202512          1.031         True
+FF3+Mom      0.744  5.671  0.546  624  197401  202512          0.814         True
+FF5          1.162  6.094  0.060  624  197401  202512          0.884         True
+FF6          0.668  5.027  0.553  624  197401  202512          0.736         True
+q            0.787  4.367  0.184  624  197401  202512          0.643         True
+q5           0.640  3.325  0.190  624  197401  202512          0.525         True
+
+=== long_gross: mean 1.696% per month, t(mean) 7.58, 624 months ===
+         alpha_pct  t_ols     r2    n   first    last  ann_appraisal  passes_2.78
+model                                                                            
+CAPM         0.609  5.695  0.777  624  197401  202512          0.798         True
+FF3          0.553  5.547  0.809  624  197401  202512          0.783         True
+FF3+Mom      0.307  3.586  0.864  624  197401  202512          0.515         True
+FF5          0.464  4.606  0.816  624  197401  202512          0.668         True
+FF6          0.276  3.177  0.866  624  197401  202512          0.465         True
+q            0.326  3.296  0.828  624  197401  202512          0.485         True
+q5           0.297  2.804  0.828  624  197401  202512          0.442         True
+
+HEADLINE (ls_gross, FF6, 197401-202512): alpha 0.593% per month, OLS t = 4.73 -> PASSES t >= 2.78
+  (GROSS only: the hurdle applies net of costs; add a spread file to get the real headline)
+  Break-even uniform spread (professor's formula, both legs): 2 x gross FF6 alpha / traded weight = 0.44% full spread (traded weight 2.680 per month)
+
+Fama-MacBeth slopes on scaled ranks over the test window (DESCRIPTIVE ONLY; the strategy uses real-time averages):
+            mean_slope_pct    fm_t  share_positive  weight_at_end_pct
+size                -0.818  -2.781           0.474             -0.728
+price               -0.310  -1.635           0.481             -0.277
+rev1                 0.646   2.416           0.558              0.648
+mom12_2              1.438   5.327           0.601              1.503
+mom12_7              0.237   1.587           0.534              0.251
+ltrev36_13          -0.390  -2.785           0.481             -0.408
+season               0.396   4.590           0.590              0.388
+ind_mom6             0.190   1.812           0.527              0.199
+ind_rel1            -2.311 -10.286           0.332             -2.363
+resmom              -0.480  -4.069           0.413             -0.472
+nissue12            -0.385  -4.899           0.413             -0.343
+cissue36            -0.177  -2.250           0.450             -0.208
+dy12                -0.046  -0.331           0.492             -0.044
+beta36               0.295   1.778           0.532              0.252
+ivol36              -0.149  -0.957           0.476             -0.146
+turn12               0.086   0.701           0.505              0.052
+maxret12            -0.472  -3.686           0.462             -0.437
+hi12                 0.338   1.585           0.574              0.333
+
+Rank correlation of forecast with next-month return: mean 0.0586, t 19.03, 624 months
+
+[wrote composite_returns.csv, composite_alphas.csv, composite_slopes.csv to /Users/paulmorellec/Desktop/AI_Project/output/tables; composite_forecasts.parquet to /Users/paulmorellec/Desktop/AI_Project/data/processed; 14s]

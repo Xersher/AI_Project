@@ -1,0 +1,88 @@
+[input /Users/paulmorellec/Desktop/AI_Project/data/raw/crsp/CRSP_MonthlyDataStock.csv]
+[output /Users/paulmorellec/Desktop/AI_Project/data/processed/crsp_monthly.parquet]
+
+=== 0. Header: 87 columns ===
+PERMNO, SecInfoStartDt, SecInfoEndDt, SecurityBegDt, SecurityEndDt, SecurityHdrFlg, HdrCUSIP, HdrCUSIP9, CUSIP, CUSIP9, PrimaryExch, ConditionalType, ExchangeTier, TradingStatusFlg, SecurityNm, ShareClass, USIncFlg, IssuerType, SecurityType, SecuritySubType, ShareType, SecurityActiveFlg, DelActionType, DelStatusType, DelReasonType, DelPaymentType, Ticker, TradingSymbol, PERMCO, SICCD, NAICS, ICBIndustry, NASDCompno, NASDIssuno, IssuerNm, YYYYMM, MthCalDt, MthCompFlg, MthCompSubFlg, MthPrc, MthPrcFlg, MthPrcDt, MthDtFlg, MthDelFlg, MthCap, MthPrevPrc, MthPrevPrcFlg, MthPrevDt, MthPrevDtFlg, MthPrevCap, MthRet, MthRetx, MthRetFlg, MthDisCnt, MthVol, MthVolFlg, MthPrcVol, MthFacShrFlg, MthPrcVolMissCnt, ShrStartDt, ShrEndDt, ShrOut, ShrSource, ShrFacType, ShrAdrFlg, DisExDt, DisSeqNbr, DisOrdinaryFlg, DisType, DisFreqType, DisPaymentType, DisDetailType, DisTaxType, DisOrigCurType, DisDivAmt, DisFacPr, DisFacShr, DisDeclareDt, DisRecordDt, DisPayDt, DisPERMNO, DisPERMCO, vwretd, vwretx, ewretd, ewretx, sprtrn
+spread-like columns: NONE
+
+[converted to crsp_monthly.parquet in 2s]
+
+=== 1. Coverage ===
+   rows  permnos  first_month  last_month  months
+4768169    39478       196801      202512     696
+
+=== 2. Duplicate PERMNO-month rows ===
+ dup_groups  rows_involved  groups_with_different_returns
+      44335        97249.0                            0.0
+
+=== 3. Filter-field values (top 10 each) ===
+ShareType {'NS': 4363406, 'AD': 173059, 'SB': 148260, 'UG': 50108, None: 31681, 'CE': 1655}
+SecurityType {'EQTY': 4010870, 'FUND': 720752, None: 31681, 'DERV': 4866}
+SecuritySubType {'COM': 4010870, 'ETF': 459219, 'CEF': 261533, 'UNK': 31681, 'ATR': 4866}
+USIncFlg {'Y': 4307607, 'N': 460562}
+IssuerType {'CORP': 3282764, 'ACOR': 1376224, 'REIT': 109181}
+PrimaryExch {'Q': 2296936, 'N': 1484368, 'A': 525770, 'R': 305160, 'X': 96667, 'B': 59256, 'I': 12}
+ConditionalType {'RW': 4671319, 'NT': 64986, None: 31681, 'NW': 183}
+TradingStatusFlg {'A': 4669425, 'X': 64986, 'D': 31681, 'H': 1091, 'S': 986}
+MthRetFlg {'CR': 4592235, 'NT': 81392, 'NS': 35444, 'DE': 34713, 'MP': 14704, 'IP': 6641, 'GP': 3040}
+MthDelFlg {'N': 4733267, 'A': 22918, 'P': 7733, 'M': 3316, 'G': 573, 'V': 362}
+
+=== 4a. Common-stock universe (row-level filters) ===
+ permnos  first_month  min_per_month  median_per_month  max_per_month
+   25873       196801           2088              4792           7466
+
+=== 4b. Distinct common stocks by exchange (N = NYSE, A = AMEX, Q = Nasdaq), December of selected years ===
+ year  nyse  amex  nasdaq
+ 1973  1415  1107    2583
+ 1990  1317   632    3775
+ 2000  1615   563    4180
+ 2010  1328   265    2349
+ 2024  1256   155    2389
+ 2025  1234   146    2277
+
+=== 5a. Delisting months (MthRetFlg = 'DE') ===
+ delisting_rows  dropped_by_row_filters  missing_return  zero_return  mean_return  median_return
+          34713                 32086.0             0.0       2233.0      -0.0427         0.0038
+
+=== 5b. Delisting months by reason (top 15) ===
+reason action     n  zero_ret  missing_ret  median_ret
+  UNAV    MER 18634     389.0          0.0      0.0131
+  UNAV    GLI  3594      84.0          0.0      0.0032
+  FING    GDR  1635      72.0          0.0     -0.3077
+  INSC    GDR  1509     335.0          0.0     -0.0909
+  UNAV    GEX  1423      36.0          0.0      0.0182
+    LP    GDR  1248      83.0          0.0     -0.2500
+  DELQ    GDR  1126     268.0          0.0     -0.0816
+  UNAV    GDR  1002     317.0          0.0     -0.0244
+  BKPY    GDR   891      73.0          0.0     -0.5135
+  CORQ    GDR   830      69.0          0.0     -0.0478
+  INSF    GDR   750     107.0          0.0     -0.1333
+  MTMK    GDR   496     240.0          0.0      0.0000
+  MVOT    GDR   421      24.0          0.0     -0.0714
+  SHLD    GDR   230      30.0          0.0      0.0000
+  PUBI    GDR   209       4.0          0.0     -0.1831
+
+=== 5c. Delisting months by last exchange ===
+last_exch     n  median_ret  zero_ret
+        Q 20460      0.0012    1927.0
+        N  8211      0.0074     159.0
+        A  3893      0.0083     146.0
+     None  2149      0.0031       1.0
+
+=== 6. Missing returns in the universe, by decade ===
+ decade   rows  share_missing
+   1960  52138         0.0002
+   1970 501011         0.0205
+   1980 672722         0.0041
+   1990 789956         0.0015
+   2000 607715         0.0002
+   2010 447216         0.0003
+   2020 287219         0.0004
+
+=== 7. Units ===
+ cap_over_prc_x_shrout  negative_prices  median_price
+                   1.0              0.0         14.23
+
+=== 8. Our VW return vs CRSP vwretd ===
+ months  correlation  mean_diff
+    696       0.9987    0.00029

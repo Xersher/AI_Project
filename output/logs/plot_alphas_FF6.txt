@@ -1,0 +1,25 @@
+model FF6, rolling window 60 months, individual sign 'raw', weighting vw, window 197401-202512
+
+ls_gross         alpha   0.593%  t   4.73  N 624
+
+Single-characteristic portfolios (decile 10 minus decile 1, VW, gross, sign=raw):
+  size        alpha  -0.071%  t  -0.76  N 624
+  price       alpha  -0.043%  t  -0.28  N 624
+  rev1        alpha  -0.266%  t  -1.16  N 624
+  mom12_2     alpha   0.250%  t   1.85  N 624
+  mom12_7     alpha   0.496%  t   2.93  N 624
+  ltrev36_13  alpha  -0.030%  t  -0.17  N 624
+  season      alpha   0.481%  t   2.69  N 624
+  ind_mom6    alpha  -0.131%  t  -0.74  N 624
+  ind_rel1    alpha  -0.658%  t  -3.57  N 624
+  resmom      alpha   0.203%  t   1.50  N 624
+  nissue12    alpha  -0.231%  t  -2.07  N 624
+  cissue36    alpha  -0.425%  t  -4.01  N 624
+  dy12        alpha  -0.114%  t  -0.90  N 624
+  beta36      alpha   0.496%  t   2.47  N 624
+  ivol36      alpha   0.091%  t   0.59  N 624
+  turn12      alpha   0.241%  t   1.42  N 624
+  maxret12    alpha   0.042%  t   0.24  N 624
+  hi12        alpha  -0.179%  t  -0.94  N 624
+
+[wrote 21 figures (png, pdf) to /Users/paulmorellec/Desktop/AI_Project/output/figures/alphas; alpha_paths_FF6.csv, individual_returns.csv, individual_alphas_FF6.csv to /Users/paulmorellec/Desktop/AI_Project/output/tables; 9s]

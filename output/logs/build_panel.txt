@@ -1,0 +1,38 @@
+[input /Users/paulmorellec/Desktop/AI_Project/data/processed/crsp_monthly.parquet]
+[output /Users/paulmorellec/Desktop/AI_Project/data/processed/crsp_panel.parquet]
+
+duplicate PERMNO-months: 44,335 | with different MthRet: 0 | different MthCap: 0 | different ShrOut: 0
+
+[wrote crsp_panel.parquet in 2s]
+   rows  permnos  first_month  last_month  eligible_rows  eligible_missing_ret
+4715255    39478       196801      202512      3322873.0                1460.0
+
+Delisting months kept in the eligible universe, by CRSP delisting flag and action:
+MthDelFlg del_action     n  shumway_imputed  median_ret_crsp  median_ret_used
+        A        MER 11823              0.0           0.0127           0.0127
+        P        GDR  6053              0.0          -0.2175          -0.2175
+        M        GDR  2350           2350.0           0.0000          -0.5500
+        A        GEX   592              0.0           0.0152           0.0152
+        A        GLI   304              0.0           0.0033           0.0033
+        G        GDR   259            259.0           0.0000          -0.5500
+        G        GLI   145              0.0           0.0000           0.0000
+        V        MER   136              0.0          -0.0539          -0.0539
+        A        GDR    47              0.0          -0.0009          -0.0009
+        M        GLI    46              0.0           0.0010           0.0010
+        G        MER    16              0.0           0.0000           0.0000
+        V        GLI    14              0.0           0.0000           0.0000
+
+Shumway imputations by exchange at t-1:
+exch_lag    n
+       Q 2028
+       A  448
+       N  133
+
+Eligible stocks per month (Dec of selected years) and median turnover:
+ year  stocks  median_monthly_turnover
+ 1968    2108                   0.0334
+ 1973    5055                   0.0201
+ 1990    5723                   0.0304
+ 2000    6420                   0.0857
+ 2010    3955                   0.1128
+ 2025    3668                   0.2226
